@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealityCheck - Fake News Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RealityCheck</h1>
+            <p class="subtitle">AI-powered Fake News Detection</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <form action="/" method="POST">
+                    <div class="form-group">
+                        <label for="text">Enter News Article Text:</label>
+                        <textarea id="text" name="text" rows="10" placeholder="Paste the news article content here..." required>{{ input_text }}</textarea>
+                    </div>
+                    <button type="submit" class="btn">Check Authenticity</button>
+                </form>
+
+                {% if prediction %}
+                <div class="result {% if 'REAL' in prediction %}real{% else %}fake{% endif %}">
+                    <h2>Prediction Result:</h2>
+                    <p class="prediction-text">{{ prediction }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 RealityCheck Project. Powered by Machine Learning.</p>
+        </footer>
+    </div>
+</body>
+</html>

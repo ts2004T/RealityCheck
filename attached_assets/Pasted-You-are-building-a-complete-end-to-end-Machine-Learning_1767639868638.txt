@@ -1,0 +1,110 @@
+You are building a complete end-to-end Machine Learning project called **RealityCheck**, a Fake News Detection web application.
+
+GOAL:
+Detect whether a news article is REAL or FAKE using classical Machine Learning and Natural Language Processing techniques. The system must be academically sound, explainable, and suitable for a college major project review.
+
+TECH STACK (MANDATORY):
+- Python 3
+- Pandas, NumPy
+- Scikit-learn
+- NLTK
+- Flask (for backend)
+- HTML, CSS (basic frontend)
+- Joblib (model persistence)
+
+PROJECT STRUCTURE:
+RealityCheck/
+│
+├── app.py                     # Flask application
+├── model/
+│   ├── fake_news_model.pkl    # Trained ML model
+│   └── tfidf_vectorizer.pkl   # Saved TF-IDF vectorizer
+│
+├── dataset/
+│   └── news.csv               # Dataset with text and label
+│
+├── templates/
+│   └── index.html             # UI for prediction
+│
+├── static/
+│   └── style.css              # Styling
+│
+├── train_model.py             # Model training script
+├── requirements.txt
+└── README.md
+
+DATASET REQUIREMENTS:
+- CSV file with at least two columns:
+  - "text": the news article content
+  - "label": 1 for REAL, 0 for FAKE
+- Handle missing or empty text values
+
+TEXT PREPROCESSING PIPELINE:
+1. Convert text to lowercase
+2. Remove punctuation and numbers
+3. Remove stopwords
+4. Tokenization
+5. Lemmatization
+Use NLTK for all NLP operations.
+
+FEATURE EXTRACTION:
+- Use **TF-IDF Vectorization**
+- Limit max_features to avoid overfitting
+- Fit only on training data
+
+MODEL:
+- Primary model: **Logistic Regression**
+- Optional comparison: Multinomial Naive Bayes
+- Train-test split (80-20)
+- Set random_state for reproducibility
+
+EVALUATION METRICS:
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+Print evaluation results clearly during training.
+
+MODEL SAVING:
+- Save trained model and vectorizer using Joblib
+- Load them inside Flask app for inference
+
+FLASK APPLICATION:
+- Home page with:
+  - Text area for pasting news article
+  - Submit button
+- On submission:
+  - Preprocess input
+  - Transform using saved TF-IDF vectorizer
+  - Predict using trained model
+  - Display result clearly:
+    - "REAL NEWS ✅" or "FAKE NEWS ❌"
+
+UI REQUIREMENTS:
+- Clean, minimal design
+- Project title: **RealityCheck**
+- Subtitle: "AI-powered Fake News Detection"
+- Color-coded prediction output
+
+README.md MUST INCLUDE:
+- Project overview
+- Problem statement
+- Tech stack
+- How it works (ML pipeline)
+- How to run on Replit
+- Future improvements
+
+CODE QUALITY:
+- Modular and readable
+- Proper function separation
+- Clear comments for academic explanation
+- Avoid hardcoding paths
+
+CONSTRAINTS:
+- Do NOT use deep learning
+- Do NOT use external APIs
+- Keep the system explainable and lightweight
+
+EXPECTED OUTPUT:
+A fully working Fake News Detection web app that runs on Replit, accepts user input, and predicts whether the news is real or fake using Machine Learning.

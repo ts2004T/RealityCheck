@@ -1,0 +1,78 @@
+Design the UI/UX for the web application **RealityCheck**, a Machine Learning–based Fake News Detection system.
+
+UI/UX PHILOSOPHY:
+The interface must communicate trust, neutrality, and credibility.
+Design should feel journalistic and academic rather than flashy or startup-like.
+Minimalism is mandatory.
+
+TARGET USER FLOW:
+1. User lands on homepage
+2. User pastes a news article into a large text area
+3. User clicks a primary action button labeled "Check Reality"
+4. System displays prediction result clearly
+5. User can reset and check another article
+
+LAYOUT REQUIREMENTS:
+- Single-page application
+- Centered content column
+- Clear visual hierarchy
+- No popups or modals
+
+HEADER:
+- Title: "RealityCheck"
+- Subtitle: "AI-powered Fake News Detection"
+- Simple alignment, no logos or images
+
+INPUT SECTION:
+- Large textarea for news article input
+- Placeholder text: "Paste the full news article here..."
+- Primary button below textarea: "Check Reality"
+- Disable button when textarea is empty
+- Show subtle loading text: "Analyzing content..."
+
+RESULT DISPLAY:
+- Result appears only after submission
+- Display result inside a bordered card
+- Two possible outputs:
+  - "REAL NEWS ✅" (green accent)
+  - "FAKE NEWS ❌" (red accent)
+- Include one short explanatory sentence below the result
+- No probability scores or technical jargon in UI
+
+COLOR PALETTE:
+- Background: off-white or very light gray
+- Primary text: near-black
+- Secondary text: muted gray
+- REAL result: muted green
+- FAKE result: muted red
+- Avoid gradients, neon colors, or dark themes
+
+TYPOGRAPHY:
+- Use clean sans-serif font (Inter / Poppins / system default)
+- Headings slightly bold
+- Body text regular weight
+- Generous line spacing for readability
+
+INTERACTION DESIGN:
+- Button hover state: subtle darkening only
+- No animations or transitions
+- No emojis except in final result indicator
+- No sound effects or illustrations
+
+ACCESSIBILITY:
+- High contrast text
+- Large readable font sizes
+- Clear focus states
+
+STRICT CONSTRAINTS:
+- Do NOT add login, signup, profiles, or dashboards
+- Do NOT add charts, graphs, or statistics
+- Do NOT add background images or icons
+- Do NOT add marketing-style copy
+- Do NOT overexplain ML concepts in UI
+
+DESIGN INTENT STATEMENT (for documentation):
+"The interface is intentionally minimal to avoid influencing user judgment and to keep focus on the machine learning inference rather than visual persuasion."
+
+EXPECTED OUTPUT:
+A clean, minimal, trustworthy UI suitable for an academic Machine Learning project, implemented using HTML and CSS and integrated into a Flask application.

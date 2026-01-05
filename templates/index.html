@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RealityCheck - Fake News Detection</title>
+    <title>RealityCheck - AI Fake News Detection</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -16,26 +15,59 @@
 
         <main>
             <div class="card">
-                <form action="/" method="POST">
+                <form id="checkForm" action="/" method="POST">
                     <div class="form-group">
-                        <label for="text">Enter News Article Text:</label>
-                        <textarea id="text" name="text" rows="10" placeholder="Paste the news article content here..." required>{{ input_text }}</textarea>
+                        <label for="text">Article Content</label>
+                        <textarea 
+                            id="text" 
+                            name="text" 
+                            placeholder="Paste the full news article here..." 
+                            required
+                        >{{ input_text }}</textarea>
                     </div>
-                    <button type="submit" class="btn">Check Authenticity</button>
+                    <button type="submit" id="submitBtn" class="btn">Check Reality</button>
+                    <p id="loadingText" class="loading-text">Analyzing content...</p>
                 </form>
 
                 {% if prediction %}
                 <div class="result {% if 'REAL' in prediction %}real{% else %}fake{% endif %}">
-                    <h2>Prediction Result:</h2>
+                    <h2>Prediction</h2>
                     <p class="prediction-text">{{ prediction }}</p>
+                    <p class="explanation">
+                        {% if 'REAL' in prediction %}
+                        This article demonstrates linguistic patterns typical of factual reporting.
+                        {% else %}
+                        This article contains stylistic markers often associated with misinformation.
+                        {% endif %}
+                    </p>
+                    <a href="/" class="btn-secondary">Check Another Article</a>
                 </div>
                 {% endif %}
             </div>
         </main>
 
         <footer>
-            <p>&copy; 2024 RealityCheck Project. Powered by Machine Learning.</p>
+            <p>RealityCheck: Journalistic Integrity through Machine Learning</p>
         </footer>
     </div>
+
+    <script>
+        const textarea = document.getElementById('text');
+        const submitBtn = document.getElementById('submitBtn');
+        const form = document.getElementById('checkForm');
+        const loadingText = document.getElementById('loadingText');
+
+        function toggleButton() {
+            submitBtn.disabled = !textarea.value.trim();
+        }
+
+        textarea.addEventListener('input', toggleButton);
+        toggleButton();
+
+        form.addEventListener('submit', () => {
+            submitBtn.style.display = 'none';
+            loadingText.style.display = 'block';
+        });
+    </script>
 </body>
 </html>

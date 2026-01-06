@@ -63,3 +63,7 @@ RealityCheck/
 ├── train_model.py             # Training script
 └── README.md                  # Documentation
 ```
+
+### 🌐 Live App
+→ https://realitycheck.app
+

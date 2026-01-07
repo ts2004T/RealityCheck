@@ -8,9 +8,9 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
+      <Route path="/">
+        <h1 style={{ padding: "2rem" }}>RealityCheck is running 🚀</h1>
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );

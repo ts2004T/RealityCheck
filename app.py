@@ -64,5 +64,5 @@ def index():
     return render_template('index.html', prediction=prediction, input_text=input_text)
 
 if __name__ == "__main__":
-    load_resources()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=False)
+
